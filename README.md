@@ -19,5 +19,7 @@ feature:install camel-jackson
 
 install mvn:co.fsto/domain
 
-install mvn:co.fsto/routes
+install mvn:co.fsto/frontEndRoutes
+
+install mvn:co.fsto/backEndRoutes
 
