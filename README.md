@@ -17,9 +17,9 @@ Apache Karaf 4.0+
 
 feature:install camel-jackson 
 
-install mvn:co.fsto/domain
+install mvn:com.savoirtech/domain
 
-install mvn:co.fsto/frontEndRoutes
+install mvn:com.savoirtech/frontEndRoutes
 
-install mvn:co.fsto/backEndRoutes
+install mvn:com.savoirtech/backEndRoutes
 

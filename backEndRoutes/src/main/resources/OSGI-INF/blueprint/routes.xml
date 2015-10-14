@@ -47,13 +47,13 @@
     </bean>
 
     <!-- Camel configuration -->
-    <camelContext id="fsto-backEnd-camelContext" trace="false" xmlns="http://camel.apache.org/schema/blueprint" >
+    <camelContext id="backEnd-camelContext" trace="false" xmlns="http://camel.apache.org/schema/blueprint" >
 
         <!-- Split the order to manufacturers -->
         <route>
             <from uri="jmsConsumer:queue:orders?disableReplyTo=true"/>
             <split>
-                <method beanType="co.fsto.routes.ProductSplitter" method="splitProducts"/>
+                <method beanType="com.savoirtech.routes.ProductSplitter" method="splitProducts"/>
                 <choice>
                     <when>
                         <simple>${in.header.manufacturer} == 'abc'</simple>

@@ -2,7 +2,7 @@
  * (C) Copyright 2015 - Savoir Technologies Inc, Jeff Genender
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ *  you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -14,24 +14,20 @@
  * limitations under the License.
  */
 
-package co.fsto.rest;
+package com.savoirtech.domain;
 
-import co.fsto.domain.Order;
-import co.fsto.domain.OrderResponse;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+@XmlRootElement(name = "OrderResponse")
+public class OrderResponse {
 
-@Path("/order/")
-public interface OrdersResource {
+    private String status;
 
-    @POST
-    @Path("/add/")
-    @Produces({MediaType.APPLICATION_JSON})
-    @Consumes({MediaType.APPLICATION_JSON})
-    public OrderResponse addOrder(Order order);
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

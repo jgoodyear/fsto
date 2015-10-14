@@ -11,7 +11,7 @@
        http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/blueprint/cxf/camel-cxf.xsd
        ">
 
-    <bean id="orderResponseProcessor" class="co.fsto.routes.JSONResponseProcessor"/>
+    <bean id="orderResponseProcessor" class="com.savoirtech.routes.JSONResponseProcessor"/>
 
     <!-- CXF Restful Component -->
 
@@ -20,7 +20,7 @@
 
     <!-- CXF restful server endpoint -->
     <cxf:rsServer id="orderService" address="http://localhost:9090/rest"
-                  serviceClass="co.fsto.rest.OrdersResource">
+                  serviceClass="com.savoirtech.rest.OrdersResource">
         <cxf:providers>
             <ref component-id="jsonProvider"/>
         </cxf:providers>
@@ -51,7 +51,7 @@
     </bean>
 
     <!-- Camel configuration -->
-    <camelContext id="fsto-frontEnd-camelContext" trace="false" xmlns="http://camel.apache.org/schema/blueprint" >
+    <camelContext id="frontEnd-camelContext" trace="false" xmlns="http://camel.apache.org/schema/blueprint" >
 
         <!-- Accept the order -->
         <route>

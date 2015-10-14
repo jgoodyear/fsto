@@ -14,21 +14,24 @@
  * limitations under the License.
  */
 
-package co.fsto.routes;
+package com.savoirtech.rest;
 
-import co.fsto.domain.OrderResponse;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
+import com.savoirtech.domain.Order;
+import com.savoirtech.domain.OrderResponse;
 
-public class JSONResponseProcessor implements Processor{
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
-    @Override
-    public void process(Exchange exchange) throws Exception {
+@Path("/order/")
+public interface OrdersResource {
 
-        OrderResponse resp = new OrderResponse();
-        resp.setStatus("Thank you for your order!");
-        exchange.getOut().setBody(resp);
-
-    }
+    @POST
+    @Path("/add/")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    public OrderResponse addOrder(Order order);
 
 }

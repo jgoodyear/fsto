@@ -14,37 +14,37 @@
  * limitations under the License.
  */
 
-package co.fsto.domain;
+package com.savoirtech.domain;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "order")
-public class Order implements Serializable {
+@XmlType(name = "item_type")
+public class Item implements Serializable {
 
     @XmlElement(required = true)
-    private Customer customer;
+    private String product;
 
-    private ArrayList<Item> items = new ArrayList<Item>();
+    @XmlElement(required = true)
+    private int quantity;
 
-    public Customer getCustomer() {
-        return customer;
+    public String getProduct() {
+        return product;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setProduct(String product) {
+        this.product = product;
     }
 
-    public ArrayList<Item> getItems() {
-        return items;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

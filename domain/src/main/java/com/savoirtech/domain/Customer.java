@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package co.fsto.domain;
+package com.savoirtech.domain;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

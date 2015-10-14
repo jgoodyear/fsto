@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package co.fsto.routes;
+package com.savoirtech.routes;
 
-import co.fsto.domain.Item;
-import co.fsto.domain.Order;
-import co.fsto.domain.ProductOrder;
+import com.savoirtech.domain.Item;
+import com.savoirtech.domain.Order;
+import com.savoirtech.domain.ProductOrder;
 import org.apache.camel.Message;
 import org.apache.camel.impl.DefaultMessage;
 

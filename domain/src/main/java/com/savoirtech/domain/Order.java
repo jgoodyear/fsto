@@ -14,17 +14,23 @@
  * limitations under the License.
  */
 
-package co.fsto.domain;
+package com.savoirtech.domain;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class ProductOrder implements Serializable {
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "order")
+public class Order implements Serializable {
 
+    @XmlElement(required = true)
     private Customer customer;
 
-    private String product;
-
-    private int quanitity;
+    private ArrayList<Item> items = new ArrayList<Item>();
 
     public Customer getCustomer() {
         return customer;
@@ -34,19 +40,11 @@ public class ProductOrder implements Serializable {
         this.customer = customer;
     }
 
-    public String getProduct() {
-        return product;
+    public ArrayList<Item> getItems() {
+        return items;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
-    }
-
-    public int getQuanitity() {
-        return quanitity;
-    }
-
-    public void setQuanitity(int quanitity) {
-        this.quanitity = quanitity;
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
     }
 }
