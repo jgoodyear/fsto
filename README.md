@@ -12,3 +12,12 @@ Maven 3.2+
 
 Apache Karaf 4.0+
 
+
+#Installation
+
+feature:install camel-jackson 
+
+install mvn:co.fsto/domain
+
+install mvn:co.fsto/routes
+

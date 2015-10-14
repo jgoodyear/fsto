@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/blueprint"
+       xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
+       xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+       xsi:schemaLocation="
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
+       http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/blueprint/cxf/camel-cxf.xsd
+       ">
+
+    <bean id="orderResponseProcessor" class="co.fsto.routes.JSONResponseProcessor"/>
+
+    <!-- CXF Restful Component -->
+
+    <!-- Instantiate a jsonProvider to handle JSON payloads -->
+    <bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider"/>
+
+    <!-- CXF restful server endpoint -->
+    <cxf:rsServer id="orderService" address="http://localhost:9090/rest"
+                  serviceClass="co.fsto.rest.OrdersResource">
+        <cxf:providers>
+            <ref component-id="jsonProvider"/>
+        </cxf:providers>
+    </cxf:rsServer>
+
+    <!-- ActiveMQ component -->
+
+    <bean id="amqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+        <property name="userName" value="karaf" />
+        <property name="password" value="karaf" />
+    </bean>
+
+    <bean id="amqPooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
+        <property name="maxConnections" value="5"/>
+        <property name="maximumActiveSessionPerConnection" value="5"/>
+        <property name="connectionFactory" ref="amqConnectionFactory"/>
+    </bean>
+
+    <bean id="producerJmsConfig" class="org.apache.camel.component.jms.JmsConfiguration">
+        <property name="connectionFactory" ref="amqPooledConnectionFactory"/>
+        <property name="cacheLevelName" value="CACHE_NONE"/>
+    </bean>
+
+    <!-- Set up the producer -->
+    <bean id="jmsProducer" class="org.apache.camel.component.jms.JmsComponent">
+        <property name="configuration" ref="producerJmsConfig"/>
+    </bean>
+
+    <!-- Camel configuration -->
+    <camelContext id="fsto-frontEnd-camelContext" trace="false" xmlns="http://camel.apache.org/schema/blueprint" >
+
+        <!-- Accept the order -->
+        <route>
+            <from uri="cxfrs:bean:orderService"/>
+            <wireTap uri="jmsProducer:queue:orders?disableReplyTo=true"/>
+            <to uri="orderResponseProcessor"/>
+        </route>
+
+    </camelContext>
+
+
+</blueprint>

@@ -11,14 +11,14 @@
   <packaging>pom</packaging>
   <version>1.0.0-SNAPSHOT</version>
 
-  <name>Parent Pom</name>
+  <name>FSTO :: Parent Pom</name>
 
   <prerequisites>
     <maven>3.2.2</maven>
   </prerequisites>
 
   <properties>
-     <karaf.version>4.0.2</karaf.version>
+     <karaf.version>3.0.4</karaf.version>
      <cxf.version>3.0.4</cxf.version>
      <camel.version>2.15.2</camel.version>
      <activemq.version>5.11.1</activemq.version>
@@ -27,12 +27,10 @@
   </properties>
 
   <modules>
-    <!--
-    <module>rsOrders</module>
-    <module>jmsBroker</module>
-    <module>frontEndRoute</module>
+    <module>domain</module>
+    <module>frontEndRoutes</module>
     <module>backEndRoutes</module>
-
+  <!--
     <module>commands</module>
     <module>feature</module>
     <module>itests</module>
