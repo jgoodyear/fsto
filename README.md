@@ -3,14 +3,33 @@ Empowering MicroServices With Apache Karaf.
 
 This repository contains a demonstration of how Apache Karaf empowers Full Stack developers to design, develop, deploy micro service based architectues.
 
+#Architecture:
+
+Conceptually, there are four main services deployed in our container: a RESTful webservice handing incoming requests, a common library of objects, back end business processing logic, and a JMS broker. We mix and match these services together to build our stack.
+
+<pre><code>
+  
+  +==================+
+  |                  |
+  |  (FE)            |
+  |         (Domain) |
+  |  (BE)            |
+  |                  |
+  |      (AMQ)       |
+  |                  |
+  +=====[Karaf]======+
+
+</code></pre>
 
 #Prerequisites:
 
+<pre><code>
 JDK 8
 
 Maven 3.2+
 
 Apache Karaf 4.0+
+</code></pre>
 
 
 #Installation
@@ -25,7 +44,7 @@ install mvn:com.savoirtech/frontEndRoutes
 install mvn:com.savoirtech/backEndRoutes
 </code></pre>
 
-#Running the demo
+#Runtime
 
 Congratulations! You are likely reading this because you attended my session "Empowering MicroServices with Apache Karaf".  The presentation does an overview of building modular code on a use case for utilizing Camel to process an order with an online restful servive API that takes an order with multiple line items.  The end goal is to take this order and break down each line item to a specific manufacturer and send that order to each manufacturers processing locations. The business logic is broken down in several modules, such that we can swap out implementations as required. We then take advantage of Apache Karaf to simplify provisioning & deployment, add in custom interactions, and test integration of the stack!
 
