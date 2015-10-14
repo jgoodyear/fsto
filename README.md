@@ -1,5 +1,7 @@
-# fsto
-Empowering MicroServices With Apache Karaf Full Stack Toronto 2015
+# Full Stack Toronto 2015
+Empowering MicroServices With Apache Karaf.
+
+This repository contains a demonstration of how Apache Karaf empowers Full Stack developers to design, develop, deploy micro service based architectues.
 
 
 #Prerequisites:
