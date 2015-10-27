@@ -28,7 +28,9 @@ JDK 8
 
 Maven 3.2+
 
-Aetos 3.0+ (alternatively, Servicemix 6.0+) 
+Apache Karaf 4.0.2
+
+Alternatively, try Aetos 3.0+ for prepurposed Integration Container 
 </code></pre>
 
 

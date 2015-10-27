@@ -24,6 +24,7 @@
      <activemq.version>5.12.1</activemq.version>
      <jettison.version>1.3.7</jettison.version>
      <slf4j.version>1.7.7</slf4j.version>
+     <pax-exam.version>4.5.0</pax-exam.version>
   </properties>
 
   <modules>
@@ -31,9 +32,7 @@
     <module>frontEndRoutes</module>
     <module>backEndRoutes</module>
     <module>feature</module>
-    <!--
     <module>itests</module>
-    -->
   </modules>
 
   <build>
