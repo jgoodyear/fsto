@@ -18,10 +18,10 @@
   </prerequisites>
 
   <properties>
-     <karaf.version>3.0.4</karaf.version>
+     <karaf.version>4.0.2</karaf.version>
      <cxf.version>3.0.4</cxf.version>
      <camel.version>2.15.2</camel.version>
-     <activemq.version>5.11.1</activemq.version>
+     <activemq.version>5.12.1</activemq.version>
      <jettison.version>1.3.7</jettison.version>
      <slf4j.version>1.7.7</slf4j.version>
   </properties>
@@ -30,9 +30,8 @@
     <module>domain</module>
     <module>frontEndRoutes</module>
     <module>backEndRoutes</module>
-  <!--
-    <module>commands</module>
     <module>feature</module>
+    <!--
     <module>itests</module>
     -->
   </modules>

@@ -28,20 +28,19 @@ JDK 8
 
 Maven 3.2+
 
-Apache Karaf 4.0+
+Aetos 3.0+ (alternatively, Servicemix 6.0+) 
 </code></pre>
 
 
 #Installation
 
 <pre><code>
-feature:install camel-jackson 
+feature:repo-add mvn:com.savoirtech/feature/1.0.0-SNAPSHOT/xml/features
 
-install mvn:com.savoirtech/domain
+feature:install fsto-deps
 
-install mvn:com.savoirtech/frontEndRoutes
+feature:install fsto-application 
 
-install mvn:com.savoirtech/backEndRoutes
 </code></pre>
 
 #Runtime
