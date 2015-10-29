@@ -19,4 +19,9 @@
         <bundle>mvn:com.savoirtech/backEndRoutes/${project.version}</bundle>
     </feature>
 
+    <feature name="fsto-all-demo" version=${project.version}">
+        <feature version="${project.version}">fsto-deps</feature>
+        <feature version="${project.version}">fsto-application</feature>
+    </feature>
+
 </features>

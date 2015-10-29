@@ -39,7 +39,7 @@ public class FSTOiTest {
                         .type("tar.gz")).karafVersion("4.0.2")
                         .unpackDirectory(new File("target/exam"))
                         .useDeployFolder(false),
-                configureConsole().ignoreLocalConsole(),
+                //configureConsole().ignoreLocalConsole(),
                 logLevel(LogLevel.INFO),
                 keepRuntimeFolder(),
                 junitBundles(),
