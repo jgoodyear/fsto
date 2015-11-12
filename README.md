@@ -36,6 +36,8 @@ Alternatively, try Aetos 3.0+ for prepurposed Integration Container
 
 ##Installation:
 
+Start a Karaf 4.0.2 instance, and execute the following commands:
+
 <pre><code>
 feature:repo-add mvn:com.savoirtech/feature/1.0.0-SNAPSHOT/xml/features
 
@@ -51,21 +53,19 @@ feature:install fsto-application
 
 Congratulations! You are likely reading this because you attended my session "Empowering MicroServices with Apache Karaf".  The presentation does an overview of building modular code on a use case for utilizing Camel to process an order with an online restful servive API that takes an order with multiple line items.  The end goal is to take this order and break down each line item to a specific manufacturer and send that order to each manufacturers processing locations. The business logic is broken down in several modules, such that we can swap out implementations as required. We then take advantage of Apache Karaf to simplify provisioning & deployment, add in custom interactions, and test integration of the stack!
 
+
 The goal is to demonstrate building up on a use case that uses a restful service (JAXRS) that takes a JSON order, repsonds to the caller with an order accepted, and sending to via persistent messaging to EIPs using a splitter, messaging, and the file component.  The code demonstrates transofrmation from the original order into multiple individual orders based on the manufacturer of the widget (which is the beginning of the product name).
 
-This project requires ActiveMQ 5.11.1 (or better) and a tool that allows submission of Restful "POST" JSON payloads (IntelliJ, SOAPUI, Javascript).
+
+This project requires a tool that allows submission of Restful "POST" JSON payloads (IntelliJ, SOAPUI, Javascript). 
 
 To build this project, run the following at the root of the project:
  
 <pre><code>mvn clean install</code> </pre>
 
-To run it, first run ActiveMQ.  You can learn how to launch ActiveMQ [here](http://activemq.apache.org/getting-started.html#GettingStarted-StartingActiveMQ).
+Follow the installation instructions above to deploy our built project into Apache Karaf.
 
-This project requires ActiveMQ 5.11.1 (or better) and it should be running when executing the project.  To see it work, run the application using the maven cmael plugin with the following command at the root of the camel-rider project:
-
-<pre><code>mvn camel:run</code></pre>
-
-When launching you should see something similar to this:
+In the Apache Karaf logs you should see something similar to this:
 
 <pre>
 <code>
