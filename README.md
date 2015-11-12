@@ -68,24 +68,65 @@ In the Apache Karaf logs you should see something similar to this:
 
 <pre>
 <code>
-[INFO] Scanning for projects...
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building Savoir :: How To Ride Camel To Get Over Development Humps 1.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-...
-2015-05-10T21:34:41.605 INFO  [org.apache.cxf.endpoint.ServerImpl] - Setting the server's publish address to be http://localhost:9090/rest
-2015-05-10T21:34:41.765 INFO  [org.eclipse.jetty.server.Server] - jetty-8.1.15.v20140411
-2015-05-10T21:34:41.818 INFO  [org.eclipse.jetty.server.AbstractConnector] - Started SelectChannelConnector@localhost:9090
-2015-05-10T21:34:41.837 INFO  [org.apache.camel.spring.SpringCamelContext] - Route: route1 started and consuming from: Endpoint[cxfrs://bean:orderService]
-2015-05-10T21:34:42.024 INFO  [org.apache.camel.spring.SpringCamelContext] - Route: route2 started and consuming from: Endpoint[jmsConsumer://queue:orders?disableReplyTo=true]
-2015-05-10T21:34:42.034 INFO  [org.apache.camel.spring.SpringCamelContext] - Route: route3 started and consuming from: Endpoint[jmsConsumer://queue:abc_company?disableReplyTo=true]
-2015-05-10T21:34:42.044 INFO  [org.apache.camel.spring.SpringCamelContext] - Route: route4 started and consuming from: Endpoint[jmsConsumer://queue:xyz_company?disableReplyTo=true]
-2015-05-10T21:34:42.045 INFO  [org.apache.camel.spring.SpringCamelContext] - Total 4 routes, of which 4 is started.
-2015-05-10T21:34:42.046 INFO  [org.apache.camel.spring.SpringCamelContext] - Apache Camel 2.15.2 (CamelContext: camel) started in 1.111 seconds
+2015-11-12 13:50:25,204 | INFO  | rint Extender: 3 | BlueprintCamelContext            | 73 - org.apache.camel.camel-core - 2.15.2 | Route: route1 started and consuming from: Endpoint[jmsConsumer://queue:orders?disableReplyTo=true]
+2015-11-12 13:50:25,210 | INFO  | rint Extender: 3 | BlueprintCamelContext            | 73 - org.apache.camel.camel-core - 2.15.2 | Route: route2 started and consuming from: Endpoint[jmsConsumer://queue:abc_company?disableReplyTo=true]
+2015-11-12 13:50:25,216 | INFO  | rint Extender: 3 | BlueprintCamelContext            | 73 - org.apache.camel.camel-core - 2.15.2 | Route: route3 started and consuming from: Endpoint[jmsConsumer://queue:xyz_company?disableReplyTo=true]
+2015-11-12 13:50:25,223 | INFO  | rint Extender: 3 | BlueprintCamelContext            | 73 - org.apache.camel.camel-core - 2.15.2 | Total 3 routes, of which 3 is started.
+2015-11-12 13:50:25,225 | INFO  | rint Extender: 3 | BlueprintCamelContext            | 73 - org.apache.camel.camel-core - 2.15.2 | Apache Camel 2.15.2 (CamelContext: backEnd-camelContext) started in 0.617 seconds
+2015-11-12 13:50:25,239 | INFO  | rint Extender: 2 | AbstractConnector                | 171 - org.eclipse.jetty.aggregate.jetty-all-server - 8.1.14.v20131031 | Started SelectChannelConnector@localhost:9090
+2015-11-12 13:50:25,268 | INFO  | rint Extender: 2 | BlueprintCamelContext            | 73 - org.apache.camel.camel-core - 2.15.2 | Route: route4 started and consuming from: Endpoint[cxfrs://bean:orderService]
+2015-11-12 13:50:25,268 | INFO  | rint Extender: 2 | BlueprintCamelContext            | 73 - org.apache.camel.camel-core - 2.15.2 | Total 1 routes, of which 1 is started.
+2015-11-12 13:50:25,269 | INFO  | rint Extender: 2 | BlueprintCamelContext            | 73 - org.apache.camel.camel-core - 2.15.2 | Apache Camel 2.15.2 (CamelContext: frontEnd-camelContext) started in 0.569 seconds
 </code>
 </pre>
+
+On the console you'll see the follow list output:
+
+<pre><code>
+karaf@root()> list
+START LEVEL 100 , List Threshold: 50
+ ID | State  | Lvl | Version                            | Name
+---------------------------------------------------------------------------------------------------
+ 52 | Active |  80 | 5.12.1                             | activemq-karaf
+ 53 | Active |  80 | 1.0.0.SNAPSHOT                     | FSTO :: Back End Routes
+ 54 | Active |  80 | 2.4.3                              | Jackson-annotations
+ 55 | Active |  80 | 2.4.3                              | Jackson-core
+ 56 | Active |  80 | 2.4.3                              | jackson-databind
+ 57 | Active |  80 | 2.4.3                              | Jackson-module-JAXB-annotations
+ 58 | Active |  80 | 1.0.0.SNAPSHOT                     | FSTO :: Common Domain Library
+ 59 | Active |  80 | 1.0.0.SNAPSHOT                     | FSTO :: Front End Routes
+ 66 | Active |  80 | 3.1.4                              | activeio-core
+ 67 | Active |  80 | 5.12.1                             | activemq-camel
+ 68 | Active |  80 | 5.12.1                             | activemq-osgi
+ 69 | Active |  80 | 1.1.1                              | Apache Aries Transaction Manager
+ 70 | Active |  80 | 2.15.2                             | camel-blueprint
+ 71 | Active |  80 | 2.15.2                             | camel-catalog
+ 72 | Active |  80 | 2.15.2                             | camel-commands-core
+ 73 | Active |  80 | 2.15.2                             | camel-core
+ 74 | Active |  80 | 2.15.2                             | camel-cxf
+ 75 | Active |  80 | 2.15.2                             | camel-cxf-transport
+ 76 | Active |  80 | 2.15.2                             | camel-jackson
+ 77 | Active |  80 | 2.15.2                             | camel-jms
+ 78 | Active |  80 | 2.15.2                             | camel-spring
+ 79 | Active |  80 | 2.15.2                             | camel-karaf-commands
+ 81 | Active |  80 | 3.2.1                              | Commons Collections
+ 83 | Active |  80 | 3.3.0                              | Commons Net
+ 84 | Active |  80 | 1.6.0                              | Commons Pool
+ 85 | Active |  80 | 2.4.2                              | Apache Commons Pool
+120 | Active |  80 | 2.0.0                              | geronimo-j2ee-connector_1.5_spec
+121 | Active |  80 | 1.0.1                              | geronimo-j2ee-management_1.1_spec
+127 | Active |  80 | 3.4.6                              | ZooKeeper Bundle
+131 | Active |  80 | 2.0.9                              | Apache MINA Core
+137 | Active |  80 | 1.9.2.1                            | Apache ServiceMix :: Bundles :: jasypt
+138 | Active |  80 | 2.2.6.1                            | Apache ServiceMix :: Bundles :: jaxb-impl
+152 | Active |  80 | 1.7.0.6                            | Apache ServiceMix :: Bundles :: velocity
+156 | Active |  80 | 1.1.0.4c_5                         | Apache ServiceMix :: Bundles :: xpp3
+157 | Active |  80 | 1.4.7.1                            | Apache ServiceMix :: Bundles :: xstream
+168 | Active |  80 | 3.18.0                             | Apache XBean :: Spring
+197 | Active |  80 | 0.6.4                              | JAXB2 Basics - Runtime
+205 | Active |  80 | 2.11.0.v20140415-163722-cac6383e66 | Scala Standard Library
+karaf@root()> 
+</code></pre>
 
 If you see these messages, then your ActiveMQ instance is not running or its not listening on port 61616 (or its not set up properly):
 
