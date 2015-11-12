@@ -21,7 +21,7 @@ Conceptually, there are four main services deployed in our container: a RESTful 
 
 </code></pre>
 
-###Prerequisites:
+#Prerequisites:
 
 <pre><code>
 JDK 8
@@ -34,7 +34,7 @@ Alternatively, try Aetos 3.0+ for prepurposed Integration Container
 </code></pre>
 
 
-####Installation:
+#Installation:
 
 Start a Karaf 4.0.2 instance, and execute the following commands:
 
@@ -48,8 +48,7 @@ feature:install fsto-application
 </code></pre>
 
 
-#####Runtime:
-
+#Runtime:
 
 Congratulations! You are likely reading this because you attended my session "Empowering MicroServices with Apache Karaf".  The presentation does an overview of building modular code on a use case for utilizing Camel to process an order with an online restful servive API that takes an order with multiple line items.  The end goal is to take this order and break down each line item to a specific manufacturer and send that order to each manufacturers processing locations. The business logic is broken down in several modules, such that we can swap out implementations as required. We then take advantage of Apache Karaf to simplify provisioning & deployment, add in custom interactions, and test integration of the stack!
 
